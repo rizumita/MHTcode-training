@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        let _ = Self._printChanges()
+
+        NavigationView {
+            NavigationLink {
+                SecondView().onAppear {
+                                print("View.onAppear")
+                            }
+                            .onDisappear {
+                                print("View.onDisappear")
+                            }
+            } label: {
+                Text("View for logging")
+            }
+        }
     }
 }
 
