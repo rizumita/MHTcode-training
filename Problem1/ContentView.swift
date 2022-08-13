@@ -44,25 +44,25 @@ struct ContentView: View {
                position: .bottom,
                autohideIn: 2,
                dragToDismiss: true) {
-            popupContent(message: "On did become active")
+            popupMessage(message: "On did become active")
         }
         .popup(isPresented: $isPopupShownOnAppear,
                type: .floater(),
                position: .bottom,
                autohideIn: 2,
                dragToDismiss: true) {
-            popupContent(message: "SecondView: On appear")
+            popupMessage(message: "SecondView: On appear")
         }
         .popup(isPresented: $isPopupShownOnDisappear,
                type: .floater(),
                position: .bottom,
                autohideIn: 2,
                dragToDismiss: true) {
-            popupContent(message: "SecondView: On disappear")
+            popupMessage(message: "SecondView: On disappear")
         }
     }
 
-    func popupContent(message: String) -> some View {
+    private func popupMessage(message: String) -> some View {
         Text(message)
         .foregroundColor(.white)
         .frame(height: 40)
