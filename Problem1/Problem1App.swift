@@ -11,13 +11,15 @@ import SwiftUI
 struct Problem1App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @Environment(\.scenePhase) private var scenePhase
+    @State private var isPopupShownOnDidBecomeActive = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(isPopupShownOnDidBecomeActive: $isPopupShownOnDidBecomeActive)
             .onReceive(NotificationCenter.default
                                          .publisher(for: UIApplication.didBecomeActiveNotification)) { notification in
                 print(notification.name)
+                isPopupShownOnDidBecomeActive = true
             }
             .onReceive(NotificationCenter.default
                                          .publisher(for: UIApplication.willResignActiveNotification)) { notification in
