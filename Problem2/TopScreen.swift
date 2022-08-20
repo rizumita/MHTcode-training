@@ -22,6 +22,7 @@ struct TopScreen: View {
 
                 TextField("画面Aに渡す文字列を入力", text: $text)
                 .multilineTextAlignment(.center)
+                .submitLabel(.done)
                 .padding()
 
                 Spacer()

@@ -11,6 +11,7 @@ struct BScreen: View {
         NavigationView {
             TextField("Top画面に渡す文字列を入力", text: $text)
             .multilineTextAlignment(.center)
+            .submitLabel(.done)
             .padding()
             .navigationBarHidden(true)
             .ignoresSafeArea(.keyboard)
